@@ -6,16 +6,16 @@
 <h1 class="text-center text-uppercase">Poll Maker</h1>
 <hr />
 
-<p class="">Welcome to the Poll Maker!  Here, you can create polls, vote, and view results.</p>
-<br>
 <br>
 
-<div class="row">
-    <div class="col-lg-2"></div>
+<div class="row jumbotron">
+    <div class="col-lg-2">
+        <p class="text-danger">Welcome to the Poll Maker!  Here, you can create polls, vote, and view results.</p>
+    </div>
 
     <div class="col-lg-8">
         <h3>Most Recent Poll</h3>
-        <!--Recent Poll-->
+        <div>@Html.Raw(ViewBag.RecentPoll.PollToHtml())</div>
     </div>
 
     <div class="col-lg-2"></div>

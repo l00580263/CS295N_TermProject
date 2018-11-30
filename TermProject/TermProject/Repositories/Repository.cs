@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,8 +10,21 @@ namespace TermProject.Repositories
     public class Repository : IRepository
     {
 
-        public List<Poll> Polls { get; }
-        public List<PollOption> PollOptions { get; }
+        public List<Poll> Polls {
+            get
+            {
+                return context.Polls.Include("Options").ToList();
+            }
+        }
+
+        public List<PollOption> PollOptions
+        {
+            get
+            {
+                return context.PollOptions.ToList();
+            }
+        }
+
         AppDbContext context;
 
 
