@@ -9,7 +9,7 @@ namespace TermProject.Models
     {
 
         #region Properties
-        public int PollId { get; set; }
+        public int PollID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<PollOption> Options { get; set; }

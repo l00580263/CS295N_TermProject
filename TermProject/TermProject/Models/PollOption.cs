@@ -7,6 +7,7 @@ namespace TermProject.Models
 {
     public class PollOption
     {
+        public int PollOptionID { get; set; }
         public string Name { get; set; }
         public int Votes { get; set; }
     }
