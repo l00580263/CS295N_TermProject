@@ -99,7 +99,12 @@ namespace TermProject.Models
                 int p = percentages[i];
                 while (p > 0)
                 {
-                    bar += "_";
+                    if (p % 2 != 0)
+                    {
+                        // reduce size of bars
+                        bar += "_";
+                    }
+
                     p--;
                 }
                 

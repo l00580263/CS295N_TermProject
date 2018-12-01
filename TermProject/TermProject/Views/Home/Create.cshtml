@@ -4,6 +4,29 @@
     ViewBag.Header = "Create a Poll";
 }
 
-@model Poll;
+@model PollCreation;
 
 
+<form class="p-a-1" asp-controller="Home" asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+
+        <label asp-for="Name">Poll Name:</label>
+        <input class="form-control" asp-for="Name" />
+
+        <label asp-for="Description">Description:</label>
+        <input class="form-control" asp-for="Description" />
+
+        <label asp-for="EndDate">Description:</label>
+        <input type="date" class="form-control" asp-for="EndDate" />
+
+        <label asp-for="Options">Options (separated by commas):</label>
+        <input class="form-control" asp-for="Options" />
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Create Poll</button>
+    </div>
+
+</form>

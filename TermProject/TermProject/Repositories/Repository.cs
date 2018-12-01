@@ -38,7 +38,7 @@ namespace TermProject.Repositories
         public void AddPoll(Poll p)
         {
             // add poll
-            Polls.Add(p);
+            context.Polls.Add(p);
 
             // save changes
             context.SaveChanges();

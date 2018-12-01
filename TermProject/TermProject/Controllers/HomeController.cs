@@ -28,7 +28,7 @@ namespace TermProject.Controllers
             // add most recent poll
             if (repo.Polls.Count > 0)
             { 
-                ViewBag.RecentPoll = repo.Polls[repo.Polls.Count - 1];
+                ViewBag.RecentPoll = repo.Polls.Last();
             }
 
             return View();
@@ -39,6 +39,44 @@ namespace TermProject.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Create(PollCreation submittedPoll)
+        {
+            if (!ModelState.IsValid)
+            {
+                // errore
+                return View();
+            }
+
+
+            // add poll
+            Poll newPoll = new Poll() { Name = submittedPoll.Name, Description = submittedPoll.Description, EndDate = submittedPoll.EndDate};
+
+            // get names
+            string[] optionNames = submittedPoll.Options.Split(",");
+
+            // create and add poll options
+            newPoll.Options = new List<PollOption>();
+            foreach (string name in optionNames)
+            {
+                // remove white space
+                string cleanName = name.Trim();
+
+                // add new option
+                newPoll.Options.Add(new PollOption() { Name = cleanName });
+            }
+
+            // add poll
+            repo.AddPoll(newPoll);
+
+            // return to vote view
+            ViewBag.Poll = repo.Polls.Last();
+
+            return View("Vote");
         }
 
 
