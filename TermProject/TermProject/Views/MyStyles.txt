@@ -1,0 +1,11 @@
+.row 
+{
+  margin-left: 0px;
+}
+
+
+a:hover
+{
+ 	background-color: rgb(150, 150, 255);
+	text-decoration: none;
+}

@@ -40,5 +40,37 @@ namespace TermProject.Controllers
         {
             return View();
         }
+
+
+
+        public IActionResult List()
+        {
+            // add polls
+            ViewBag.Polls = repo.Polls;
+
+            return View();
+        }
+
+
+
+        public IActionResult Vote(int poll)
+        {
+            ViewBag.Poll = repo.Polls.Single(p => p.PollID == poll);
+
+            return View();
+        }
+
+
+
+        public IActionResult Voted(int poll, int option)
+        {
+            // add vote
+            repo.AddVoteToPoll(option);
+
+            // return to vote view
+            ViewBag.Poll = repo.Polls.Single(p => p.PollID == poll);
+
+            return View("Vote");
+        }
     }
 }

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Polls";
+    ViewBag.ActivePage = "List";
+    ViewBag.Header = "Polls";
+}
+
+
+
+<div>
+
+    @{
+        // arrange polls newest to oldest
+        List<Poll> orderedPoll = ViewBag.Polls;
+        orderedPoll = orderedPoll.OrderBy(p => p.PollID).ToList();
+
+        int i = 1;
+
+        foreach (Poll p in orderedPoll)
+        {
+            // 2 polls per row
+            if (i % 2 != 0)
+            {
+                @Html.Raw("<div class='row'>")
+            }
+
+            // put poll on page
+            <div class="col-lg-6">
+
+                <a class = "poll" href="/home/vote?poll=@p.PollID">
+                    @Html.Raw(p.PollToHtml())
+                </a>
+
+            </div>
+
+            if (i % 2 == 0)
+            {
+                @Html.Raw("</div>")
+            }
+
+            i++;
+        }
+    }
+
+</div>

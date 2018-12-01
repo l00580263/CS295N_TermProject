@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Vote";
+    ViewBag.ActivePage = "Vote";
+    ViewBag.Header = "Vote " + ViewBag.Poll.Name;
+}
+
+
+
+<div class="jumbotron">
+
+    @Html.Raw(ViewBag.Poll.PollToHtml())
+
+    @{
+        // get options
+        List<PollOption> options = ViewBag.Poll.Options;
+
+        if (!ViewBag.Poll.IsPollClosed())
+        {
+            <br>
+            <h4>Choose Your Vote!</h4>
+            foreach (PollOption op in options)
+            {                
+                <a class="btn btn-info" href="/home/voted?poll=@ViewBag.Poll.PollID&option=@op.PollOptionID">@op.Name</a>                               
+            }
+        }
+    }
+
+</div>

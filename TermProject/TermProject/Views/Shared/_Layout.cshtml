@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        .row {
+            margin-left: 0px;
+        }
+
+
+        a.poll:hover {
+            background-color: rgb(150, 150, 255);
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 
 
 
 <body>
-
+    
+    <!--Navigation-->
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -36,6 +48,12 @@
         <div class="col-lg-2"></div>
 
         <div class="col-lg-8">
+            <!--Main Header-->
+            <h1 class="text-center text-uppercase">@ViewBag.Header</h1>
+            <hr />
+
+            <br>
+            <!--Page-->
             @RenderBody()
         </div>
 

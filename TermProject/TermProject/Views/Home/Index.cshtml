@@ -1,12 +1,8 @@
 ﻿@{
     ViewBag.Title = "Poll Home";
     ViewBag.ActivePage = "Index";
+    ViewBag.Header = "Poll Maker";
 }
-
-<h1 class="text-center text-uppercase">Poll Maker</h1>
-<hr />
-
-<br>
 
 <div class="row jumbotron">
     <div class="col-lg-2">
@@ -15,7 +11,11 @@
 
     <div class="col-lg-8">
         <h3>Most Recent Poll</h3>
-        <div>@Html.Raw(ViewBag.RecentPoll.PollToHtml())</div>
+        <div>
+            <a class = "poll" href="/home/vote?poll=@ViewBag.RecentPoll.PollID">
+                @Html.Raw(ViewBag.RecentPoll.PollToHtml())
+            </a>
+        </div>
     </div>
 
     <div class="col-lg-2"></div>

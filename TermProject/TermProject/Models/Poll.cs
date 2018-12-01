@@ -104,8 +104,8 @@ namespace TermProject.Models
                 }
                 
                 // format option
-                formattedBars += string.Format("<span class ='{0}'> {1} </span><br>", colors[i%colors.Count], bar);
-                formattedOptions += string.Format("<strong> {0} </strong> - {1} votes <br>", op.Name, op.Votes);
+                formattedBars += string.Format("<span class ='{0}'>{1}</span><br>", colors[i%colors.Count], bar);
+                formattedOptions += string.Format("<strong>{0}</strong>: {1}<br>", op.Name, op.Votes);
 
                 // next option
                 i++;
@@ -117,6 +117,7 @@ namespace TermProject.Models
                 <h5 class = 'text-center text-primary'> {0} </h5>
                 <div> {1} </div>
                 <strong>Poll closes {2} </strong>
+                <div>{5}</div> 
                 
                 <br>
                 <br>
@@ -128,9 +129,10 @@ namespace TermProject.Models
                     <div class = 'col-lg-8'>
                         {4}
                     </div>
-                </div>
+                </div>           
+
             </div>
-            ", Name, Description, EndDate.Date.ToString("d"), formattedOptions, formattedBars);
+            ", Name, Description, EndDate.Date.ToString("d"), formattedOptions, formattedBars, GetResult());
 
             return formatted;
         }
