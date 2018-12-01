@@ -16,16 +16,16 @@
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link @(ViewBag.ActivePage == "Index" ? "active" : "")" asp-controller="Home">Home</a>
+                <a class="nav-link @(ViewBag.ActivePage == "Index" ? "active" : "")" asp-controller="Home" asp-action="Index">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewBag.ActivePage == "Create" ? "active" : "")" asp-controller="Create">Create a Poll</a>
+                <a class="nav-link @(ViewBag.ActivePage == "Create" ? "active" : "")" asp-controller="Home" asp-action="Create">Create a Poll</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewBag.ActivePage == "List" ? "active" : "")" asp-controller="List">List of Polls</a>
+                <a class="nav-link @(ViewBag.ActivePage == "List" ? "active" : "")" asp-controller="Home" asp-action="List">List of Polls</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewBag.ActivePage == "Activity" ? "active" : "")" asp-controller="Activity">Voting Activity</a>
+                <a class="nav-link @(ViewBag.ActivePage == "Activity" ? "active" : "")" asp-controller="Home" asp-action="Activity">Voting Activity</a>
             </li>
         </ul>
     </nav>
