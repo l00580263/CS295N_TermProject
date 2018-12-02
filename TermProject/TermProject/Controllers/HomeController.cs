@@ -81,10 +81,17 @@ namespace TermProject.Controllers
 
 
 
-        public IActionResult List()
+        public IActionResult List(string name)
         {
+            if (name == null)
+            {
+                name = "";
+            }
+
             // add polls
-            ViewBag.Polls = repo.Polls;
+            ViewBag.Polls = (from p in repo.Polls
+                             where p.Name.StartsWith(name)
+                             select p).ToList();
 
             return View();
         }

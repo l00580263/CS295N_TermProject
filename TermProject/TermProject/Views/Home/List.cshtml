@@ -8,11 +8,26 @@
 
 <div>
 
+    <form class="p-a-1" asp-controller="Home" asp-action="List" method="post">
+
+        <div class="form-group">
+
+            <label for="name">Poll Name Starts With (case sensitive):</label>
+            <input for="name" class="form-control" asp-route-name name="name" />
+
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Search Polls</button>
+        </div>
+
+    </form>
+
 
     @{
         // arrange polls newest to oldest
         List<Poll> orderedPoll = ViewBag.Polls;
-        orderedPoll = orderedPoll.OrderByDescending(p => p.PollID).ToList();
+        orderedPoll.Reverse();
 
         foreach (Poll p in orderedPoll)
         {
