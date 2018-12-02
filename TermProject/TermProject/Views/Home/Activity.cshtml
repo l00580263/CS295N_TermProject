@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Activity";
+    ViewBag.ActivePage = "Activity";
+    ViewBag.Header = "Activity";
+}
+
+
+
+<div class="row">
+
+    <div class="col-lg-4 text-center">
+        <h4>Polls Data</h4>
+
+        <span>
+            Total Polls: @ViewBag.PollCount
+            <br />
+            Open Polls: @ViewBag.OpenPollCount
+            <br />
+            Oldest Poll: <a class = "poll" href="/home/vote?poll=@ViewBag.OldestPoll.PollID">@ViewBag.OldestPoll.Name</a>
+            <br />
+            Newest Poll: <a class="poll" href="/home/vote?poll=@ViewBag.NewestPoll.PollID">@ViewBag.NewestPoll.Name</a>
+        </span>
+    </div>
+
+    <div class="col-lg-4 text-center">
+        <h4>Vote Data</h4>
+
+        <span>
+            Total Votes: @ViewBag.VoteCount
+            <br />
+            Most Votes on a Poll: @ViewBag.MostVotes
+            <br />
+            Least Votes on a Poll: @ViewBag.LeastVotes
+            <br />
+            Poll with Most Votes: <a class="poll" href="/home/vote?poll=@ViewBag.MostVotedPoll.PollID">@ViewBag.MostVotedPoll.Name</a>
+            <br />
+            Poll with Least Votes: <a class="poll" href="/home/vote?poll=@ViewBag.LeastVotedPoll.PollID">@ViewBag.LeastVotedPoll.Name</a>
+        </span>
+    </div>
+
+    <div class="col-lg-4 text-center">
+        <h4>Option Data</h4>
+
+        <span>
+            Total Options: @ViewBag.OptionCount
+            <br />
+            Most Options on a Poll: @ViewBag.MostOptions
+            <br />
+            Least Options on a Poll: @ViewBag.LeastOptions
+            <br />
+            Most Votes on an Option: @ViewBag.MostOptionVotes
+            <br />
+            Least Votes on an Option: @ViewBag.LeastOptionVotes
+        </span>
+    </div>
+
+</div>

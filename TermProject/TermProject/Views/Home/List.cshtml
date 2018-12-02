@@ -12,7 +12,7 @@
     @{
         // arrange polls newest to oldest
         List<Poll> orderedPoll = ViewBag.Polls;
-        orderedPoll = orderedPoll.OrderBy(p => p.PollID).ToList();
+        orderedPoll = orderedPoll.OrderByDescending(p => p.PollID).ToList();
 
         foreach (Poll p in orderedPoll)
         {
